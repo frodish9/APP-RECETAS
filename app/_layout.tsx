@@ -11,11 +11,16 @@ function NavigationGate() {
     </Stack>
   );
 }
+import { SessionProvider } from '@/lib/session-context';
 
 export default function RootLayout() {
   return (
     <SessionProvider>
       <NavigationGate />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="auth" />
+      </Stack>
     </SessionProvider>
   );
 }
